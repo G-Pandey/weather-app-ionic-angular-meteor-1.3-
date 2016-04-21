@@ -1,0 +1,25 @@
+#homeTopHalf{
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center;
+  text-align: center;
+}
+
+.night{
+  color:white;
+}
+
+h1.night, h1.day{
+  font-weight:200;
+}
+
+h2.night, h2.day{
+  font-size:4em;
+  margin-top:30px;
+  font-weight:200;
+}
+
+p.night, p.day{
+  font-size:1.3em;
+  font-weight:200;
+}

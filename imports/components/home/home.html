@@ -1,0 +1,51 @@
+<ion-view hide-nav-bar="true">
+  <ion-content>
+    <div class="row" id="homeTopHalf" style="background:url('images/temp/{{home.data.weather[0].icon || '01n'}}.jpg')">
+      <div class="col" ng-show="!currentUser.profile.default">
+        <!-- <h2>Set Default Zip Code </h2>
+        <p>Go to <a ui-sref="tabs.addFavourite"> Favourites</a> to add zip code.</p> -->
+        <ion-spinner icon="ios-small"></ion-spinner>
+      </div>
+      <div class="col" ng-show="currentUser.profile.default">
+        <h1 class="{{home.getColour}}">{{currentUser.profile.default.city}}</h1>
+        <h2 class="{{home.getColour}}">{{home.toDegree(home.data.main.temp)}}&#8451;</h2><br>
+        <p class="{{home.getColour}}">{{home.data.weather[0].description}}</p>
+      </div>
+
+    </div>
+
+    <div id="homeBottomHalf" ng-show="currentUser.profile.default">
+        <div class="row max">
+          <i class="ion-thermometer"></i> <span class="col" id="max"> Max Temp:</span> <p id="maxV">{{home.toDegree(home.data.main.temp_max)}}&#8451;</p>
+        </div>
+        <div class="row min">
+          <i class="ion-thermometer"> </i><span class="col" id="min"> Min Temp:</span> <p id="minV">{{home.toDegree(home.data.main.temp_min)}}&#8451;</p>
+        </div>
+          <hr>
+          <div class="row sunrise">
+          <i class="ion-ios-sunny"></i><span class="col" id="sunrise">Sunrise:</span> <p id="sunUp">{{home.formatTime(home.data.sys.sunrise)}}</p>
+        </div>
+
+        <div class="row sunset">
+          <i class="ion-ios-moon"></i> <span class="col" id="sunset">Sunset:</span> <p id="sunDown">{{home.formatTime(home.data.sys.sunset)}}</p>
+        </div>
+      </div>
+
+    <!-- <div style="background:url('/images/{{home.user.profile.background}}.svg');"> -->
+    <!-- <div>
+      <div class="row row-center">
+        <p class="col col-50">High: 59</p>
+        <p class=" col col-50">Low: 59</p>
+      </div>
+      <div class="row">
+        <p class=" col col-50">Sunrise: 7:30am</p>
+        <p class=" col col-50">Sunset: 6:00pm</p>
+      </div>
+      <div class="row">
+        <div class="col col-center">
+          2:12pm
+        </div>
+      </div>
+  </div> -->
+  </ion-content>
+</ion-view>

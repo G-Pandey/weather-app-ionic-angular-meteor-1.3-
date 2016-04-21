@@ -1,0 +1,22 @@
+<ion-view title="Set Default">
+  <!-- <ion-nav-button>
+    <i class=" icon ion-chevron-left" ui-sref="tabs.settings">
+       Back </i>
+    </ion-nav-button> -->
+
+    <ion-content style="background:#36383A;">
+      <ion-list>
+        <ion-radio
+        ng-value="obj"
+        ng-model="default"
+        ng-click="settingsDefault.setDefault(default)"
+        ng-repeat="obj in settingsDefault.myFavourites"
+        class="item item-icon-right"
+        >
+          <h2>{{obj.city}}</h2>
+          <p>{{obj.zip}}</p>
+          <i ng-show="obj.zip === currentUser.profile.default.zip" class="icon ion-star myFavZip"></i>
+          </ion-radio>
+      </ion-list>
+    </ion-content>
+</ion-view>

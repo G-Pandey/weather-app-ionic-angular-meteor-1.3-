@@ -1,0 +1,59 @@
+<ion-view hide-nav-bar="true">
+  <ion-content
+  ng-init="newUser={}"
+  style="background:url('/images/temp/login_background.jpg') no-repeat; background-size:cover; background-position:center;"
+  >
+    <img src="/images/sun_smiley.png" width="100px" id="appImage"/>
+
+    <form name="signupForm" novalidate>
+    <div class="list" id="signupForm">
+      <p ng-show="signupForm.$submitted && (signupForm.name.$invalid && signupForm.name.$touched)">
+        Enter Full Name
+      </p>
+      <p ng-show="signupForm.$submitted && (signupForm.email.$touched && signupForm.email.$invalid)">
+        Enter a valid email
+      </p>
+      <p ng-show="signupForm.$submitted && (signupForm.password.$touched && signupForm.password.$invalid)">
+        Enter a password
+      </p>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">First Name</span>
+          <input
+          type="text"
+          name="name"
+           placeholder="John"
+           ng-required="true"
+           ng-model="newUser.name"
+           >
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="email"
+           placeholder="you@emailprovider.com"
+           ng-required="true"
+           name="email"
+           ng-model="newUser.email"
+           >
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password</span>
+          <input
+          type="password"
+          name="password"
+          ng-required="true"
+           placeholder="Password"
+           ng-model="newUser.password"
+           >
+        </label>
+      </div>
+
+      <button type="submit"
+      class="button button-calm button-full accountBtn"
+      ng-click="signup.signThisUserUp(newUser)"
+      >Create Account</button>
+    </form>
+    <div class="row" id="bottomLink">
+      Already have an account? <a ui-sref="home"> Login <i class="ion-log-in"></i></a>
+    </div>
+  </ion-content>
+</ion-view>

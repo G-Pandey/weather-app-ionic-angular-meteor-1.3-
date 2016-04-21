@@ -1,0 +1,38 @@
+<ion-view hide-nav-bar="true">
+  <ion-content ng-init="user={}" style="background:url('/images/temp/login_background.jpg') no-repeat; background-size:cover; background-position:center;">
+    <img src="/images/sun_smiley.png" width="100px" id="appImage"/>
+    <form name="loginForm" novalidate>
+    <div class="list" id="loginForm">
+      <p ng-show="loginForm.$submitted && (loginForm.email.$invalid && loginForm.email.$touched)">
+        Enter a valid email address
+      </p>
+      <p ng-show="loginForm.$submitted && (loginForm.email.$touched && loginForm.password.$invalid)">
+        Enter password
+      </p>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="email"
+          name="email"
+          ng-required="true"
+          ng-model="user.email"
+         placeholder="you@emailprovider.com"
+         >
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Last Name</span>
+        <input
+        type="password"
+        name="password"
+        ng-model="user.password"
+        ng-required="true"
+         placeholder="Password">
+      </label>
+    </div>
+
+    <button type="submit" class="button button-calm button-full accountBtn" ng-click="login.logUserIn(user)">Login</button>
+  </form>
+    <div class="row" id="bottomLink">
+      Don't have an account? <a ui-sref="signup"> Sign Up <i class="ion-log-in"></i></a>
+    </div>
+  </ion-content>
+</ion-view>

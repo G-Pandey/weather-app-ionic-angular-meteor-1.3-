@@ -1,0 +1,17 @@
+<ion-view title="Favourites">
+  <ion-nav-buttons side="right" >
+    <i class="ion-ios-plus-outline" ui-sref="tabs.addFavourite"></i>
+  </ion-nav-buttons>
+  <ion-content class="has-header" style="background:#36383A;">
+    <ion-list>
+      <ion-item ng-repeat="obj in favourites.myFavourites" >
+        <h2>{{obj.city}}</h2>
+        <p>{{obj.zip}}</p>
+        <i ng-show="obj.zip === currentUser.profile.default.zip" class="icon ion-star myFavZip"></i>
+        <ion-option-button class="icon ion-ios-trash"
+                       ng-click="favourites.delete(obj, currentUser.profile.default)">
+    </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

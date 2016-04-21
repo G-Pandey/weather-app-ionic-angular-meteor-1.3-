@@ -1,0 +1,27 @@
+<ion-view title="Add Favourite">
+  <!-- <ion-nav-buttons>
+    <i class=" icon ion-chevron-left" ui-sref="tabs.favourites">
+       Back </i>
+    </ion-nav-buttons> -->
+
+    <ion-content id="addFavPage" style="background:#36383A;">
+
+      <form name="addFav" novalidate>
+        <div class="list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Zip Code</span>
+            <input type="text"
+            placeholder="06518"
+            ng-required="true"
+            name="zipCode"
+            ng-model="zipcode"
+            >
+          </label>
+        </div>
+        <p ng-show="(addFav.zipCode.$invalid && addFav.$submitted) || (addFav.zipCode.$touched && addFav.zipCode.$error.required)"> Zip Code is Required </p>
+        <p ng-if="addFav.errorMessage">{{addFav.errorMessage}}</p>
+        <button type="submit" class="button button-positive button-full" ng-click="favCtrl.addNew(zipcode)">Add</button>
+    </form>
+
+    </ion-content>
+</ion-view>

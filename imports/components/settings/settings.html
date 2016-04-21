@@ -1,0 +1,18 @@
+<ion-view title="Settings">
+  <ion-content style="background:#36383A;">
+      <ion-list>
+        <div class="item item-divider">
+          Account Settings
+        </div>
+        <ion-item class="item item-icon-right" ui-sref="tabs.setDefault">
+          <h2>Default City</h2>
+          <p ng-show="!currentUser.profile.default">No default city</p>
+          <p ng-show="currentUser.profile.default">Your Default City is: {{currentUser.profile.default.city || "None"}}</p>
+          <i class="icon ion-chevron-right"></i>
+        </ion-item>
+        <ion-item class="item" ng-click="settings.logout()">
+          Log Out
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
